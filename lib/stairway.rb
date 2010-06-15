@@ -4,13 +4,13 @@ require "hashie"
 require "httparty"
 require "yajl"
 
-module Traveler
+module Stairway
   include HTTParty
   API_VERSION = "1".freeze
   base_uri "durden.dev"
   format :json
 
-  class TravelerError < StandardError
+  class StairwayError < StandardError
     attr_reader :data
 
     def initialize(data)
@@ -19,9 +19,9 @@ module Traveler
     end
   end
 
-  class RateLimitExceeded < TravelerError; end
-  class Unauthorized      < TravelerError; end
-  class General           < TravelerError; end
+  class RateLimitExceeded < StairwayError; end
+  class Unauthorized      < StairwayError; end
+  class General           < StairwayError; end
 
   class Unavailable   < StandardError; end
   class InformTraveler < StandardError; end
@@ -106,7 +106,7 @@ end
 
 directory = File.expand_path(File.dirname(__FILE__))
 
-require File.join(directory, "traveler", "oauth")
-require File.join(directory, "traveler", "request")
-require File.join(directory, "traveler", "base")
-require File.join(directory, "traveler", "tile")
+require File.join(directory, "stairway", "oauth")
+require File.join(directory, "stairway", "request")
+require File.join(directory, "stairway", "traveler")
+require File.join(directory, "stairway", "tile")

@@ -1,4 +1,4 @@
-module Traveler
+module Stairway
   class Request
     extend Forwardable
 
@@ -39,7 +39,7 @@ module Traveler
     end
 
     def perform
-      Traveler.make_friendly(send("perform_#{method}"))
+      Stairway.make_friendly(send("perform_#{method}"))
     end
 
     private

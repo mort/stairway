@@ -1,5 +1,5 @@
-module Traveler
-  class Base
+module Stairway
+  class Traveler
     extend Forwardable
 
     def_delegators :client, :get, :post, :put, :delete
@@ -19,13 +19,12 @@ module Traveler
     end
     
     def tile
-      Traveler::Tile.new(@tile_id, self)
+      Stairway::Tile.new(@tile_id, self)
     end
     
     def venue
-       Traveler::Venue.new(self)
+      Stairway::Venue.new(self)
     end
-    
     
     protected
 
@@ -69,19 +68,19 @@ module Traveler
     private
 
     def perform_get(path, options={})
-      Traveler::Request.get(self, path, options)
+      Stairway::Request.get(self, path, options)
     end
 
     def perform_post(path, options={})
-      Traveler::Request.post(self, path, options)
+      Stairway::Request.post(self, path, options)
     end
 
     def perform_put(path, options={})
-      Traveler::Request.put(self, path, options)
+      Stairway::Request.put(self, path, options)
     end
 
     def perform_delete(path, options={})
-      Traveler::Request.delete(self, path, options)
+      Stairway::Request.delete(self, path, options)
     end
 
   end

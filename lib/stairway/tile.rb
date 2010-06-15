@@ -1,4 +1,4 @@
-module Traveler
+module Stairway
   class Tile
   
     attr_reader :id, :traveler
@@ -12,7 +12,7 @@ module Traveler
     end
     
     def look
-      @traveler.send(:perform_get, "/journeys/#{@traveler.journey_id}/tiles/#{self.id}")
+      @traveler.send(:perform_get, "/journeys/#{@traveler.journey_id}/tiles/#{self.id}/look")
     end
   
   end

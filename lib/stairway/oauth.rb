@@ -1,4 +1,4 @@
-module Traveler
+module Stairway
   class OAuth
     extend Forwardable
 

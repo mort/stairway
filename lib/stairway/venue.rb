@@ -1,19 +1,21 @@
-module Traveler
-  class Tile
+module Stairway
+  class Venue
   
-    attr_reader :id, :traveler
-      
+    attr_reader :traveler
+    attr_accessor :id
+    
     def initialize(traveler)
       @traveler = traveler
     end
     
     def enter(id)
-      @traveler.send(:perform_post, "/journeys/#{@traveler.journey_id}/venues/#{id}/presence")
       @id = id
+      @traveler.send(:perform_post, "/journeys/#{@traveler.journey_id}/venues/#{id}/presence")
     end
     
     def leave
-       perform_delete("/journeys/#{@traveler.journey_id}/venues/#{@id}/presence")
+      @traveler.send(:perform_delete, "/journeys/#{@traveler.journey_id}/venues/#{@id}/presence")
+      @id = nil
     end
   
   end
