@@ -19,12 +19,11 @@ module Stairway
     end
   end
 
-  class RateLimitExceeded < StairwayError; end
-  class Unauthorized      < StairwayError; end
-  class General           < StairwayError; end
+  class NotInVenue < StairwayError; end
+  class Unauthorized < StairwayError; end
+  class General < StairwayError; end
 
   class Unavailable   < StandardError; end
-  class InformTraveler < StandardError; end
   class NotFound      < StandardError; end
 
 
@@ -110,3 +109,4 @@ require File.join(directory, "stairway", "oauth")
 require File.join(directory, "stairway", "request")
 require File.join(directory, "stairway", "traveler")
 require File.join(directory, "stairway", "tile")
+require File.join(directory, "stairway", "venue")
