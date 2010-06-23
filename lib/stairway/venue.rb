@@ -2,9 +2,7 @@ module Stairway
   class Venue
   
     attr_reader :traveler
-    
-    #undef id
-    
+        
     def initialize(traveler)
       @traveler = traveler
       @venue_id = nil

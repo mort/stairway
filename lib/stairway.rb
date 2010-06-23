@@ -19,12 +19,11 @@ module Stairway
     end
   end
 
-  class RateLimitExceeded < StairwayError; end
-  class Unauthorized      < StairwayError; end
-  class General           < StairwayError; end
+  class NotInVenue < StairwayError; end
+  class Unauthorized < StairwayError; end
+  class General < StairwayError; end
 
   class Unavailable   < StandardError; end
-  class InformTraveler < StandardError; end
   class NotFound      < StandardError; end
 
 
