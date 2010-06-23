@@ -11,8 +11,8 @@ module Stairway
       @id, @traveler = id, traveler
     end
     
-    def look
-      @traveler.send(:perform_get, "/journeys/#{@traveler.journey_id}/tiles/#{self.id}/look")
+    def look(options = {})
+      @traveler.send(:perform_get, "/journeys/#{@traveler.journey_id}/tiles/#{self.id}/look", options)
     end
   
   end
