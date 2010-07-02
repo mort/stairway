@@ -4,7 +4,7 @@ module Stairway
 
     def_delegators :client, :get, :post, :put, :delete
 
-    attr_reader :client, :journey_id, :user_id, :tile_id, :venue_id, :tile, :venue
+    attr_reader :client, :journey_id, :user_id, :tile_id, :venue_id, :tile, :venue, :journey_stats
 
     def initialize(client)
       @client = client
@@ -24,6 +24,10 @@ module Stairway
     
     def venue(venue_id)
       Stairway::Venue.new(venue_id, self)
+    end
+    
+    def journey_stats
+     self.send(:perform_get, "/journeys/#{journey_id}/stats")
     end
     
     protected
