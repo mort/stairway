@@ -54,7 +54,7 @@ module Stairway
       when 404
         raise NotFound, "(#{response.code}): #{response.message}"
       when 500
-        raise InformTraveler, "Traveler had an internal error. Please let them know in the group. (#{response.code}): #{response.message}"
+        raise StairwayError, "Traveler had an internal error. Please let them know in the group. (#{response.code}): #{response.message}"
       when 502..503
         raise Unavailable, "(#{response.code}): #{response.message}"
     end
