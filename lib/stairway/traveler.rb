@@ -22,8 +22,8 @@ module Stairway
       Stairway::Tile.new(@tile_id, self)
     end
     
-    def venue
-      Stairway::Venue.new(self)
+    def venue(venue_id)
+      Stairway::Venue.new(venue_id, self)
     end
     
     protected
